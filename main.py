@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 from twilio.rest import Client
 
 def init_twilio_client():
-    console.print("Initializing Twilio client...", style="bold green")
+    print("Initializing Twilio client...")
     load_dotenv()
     account_sid = os.getenv("MS_TWILIO_ACCOUNT_SID")
     api_sid = os.getenv("MS_TWILIO_API_KEY_SID")
