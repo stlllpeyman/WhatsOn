@@ -16,13 +16,18 @@ def extract_location(user_message):
             return None # If no location found
 
 def extract_multi_locations(user_message):
-    """As extract_location but returns list of locations inc multi word"""
+    """As extract_location but returns list of locations inc multi-word"""
     doc = nlp(user_message)
     locations = [] # initiates a list to store extracted places
+    combined_location = []
 
+    #print([(ent.text, ent.label_) for ent in doc.ents])
     for ent in doc.ents:
         if ent.label_ in["GPE", "LOC"]:
-            locations.append(ent.text)
+            locations.append(ent.text.strip())
+            if combined_location:
+                combined_location.append(ent.text)
+                locations.append(" ".join(combined_location))
 
     return locations
 
@@ -51,4 +56,5 @@ def clean_location_and_date(user_message):
 
 print(clean_location_and_date("I want to visit Warwick, 10th march"))
 print(extract_multi_locations("I want to visit Warwick Castle"))
+
 
