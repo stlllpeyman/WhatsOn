@@ -5,8 +5,8 @@ import re
 
 def process_user_input(text):
     input_to_parse = user_input.lower().strip()
-    pattern = r"([a-zA-Z\s]+)\s+(next|tomorrow|\w+\s\d{1,2}|[a-zA-Z]+day)$"
-    match = re.match(pattern, input_to_parse)
+    pattern = r"([a-zA-ZäöüÄÖÜß\s]+)\s+(next|tomorrow|[a-zA-ZäöüÄÖÜß\s]+\s\d{1,2}|[a-zA-ZäöüÄÖÜß]+day)$"
+    match = re.match(pattern, input_to_parse, re.UNICODE)
 
     if not match:
         return "Invalid input."
