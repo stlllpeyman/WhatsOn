@@ -13,7 +13,15 @@ def process_user_input(user_input):
         return "Invalid input."
 
     city_to_validate = match.group(1).strip()
+
     time = match.group(2).strip()
+    if time == "next week":
+        time = "next_week"
+
+    elif time == "next month":
+        time = "next_month"
+
+
     # day_to_validate = match.group(2).strip()
     print(city_to_validate, time)
 
