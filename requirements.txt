@@ -1,6 +1,5 @@
 python-dotenv==1.0.0
 twilio==8.4.0
 
-dateparser
-geopy.geocoders, Nominatim
-re
+dateparser==1.2.1
+geopy==2.4.1

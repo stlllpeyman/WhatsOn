@@ -3,7 +3,9 @@ from dotenv import load_dotenv
 from twilio.rest import Client
 import time
 from user_input import process_user_input
-
+from  event_extract import main_function
+from  event_extract import extract_event_info
+from event import get_json
 
 def init_twilio_client():
     """
@@ -103,24 +105,30 @@ def main():
     # our Twilio messaging service (our workspace where conversations happen)
     # <service> is like a folder that hold all conversations
     service = init_twilio_client()
+    
     address = f"whatsapp:{os.getenv('PHONE_NUMBER')}"
     ms_address = f"whatsapp:{os.getenv('MS_WHATSAPP_NUMBER')}"
+    file_path = "response.json"
+    events = extract_event_info(file_path)
+
+    my_conversation = get_my_conversation(service, address) or create_my_conversation(service, address, ms_address)
 
     # checks if convo exists <or> (if not existing) creates a new one convo
     my_conversation = get_my_conversation(service, address) or create_my_conversation(service, address, ms_address)
 
     while True:
-        user_message = wait_for_user_message(my_conversation, address)
 
-        # tuple with city and time
+        user_message = wait_for_user_message(my_conversation, address)
         api_query = process_user_input(user_message)
         location, date = api_query
+        get_json(location, date)
+        send_message(my_conversation, "Certainly, this is WhatsOn:")
+        # responses = twilio_response(events)
+        responses = main_function()
+        for response in responses:
 
-        print(location)
-        print(date)
-
-        send_message(my_conversation,
-                     f"Hey there, got your message: {user_message}, --> Length of your last message: {len(user_message)}")
+            send_message(my_conversation, response)
+            #print(response)
 
 
 if __name__ == "__main__":
