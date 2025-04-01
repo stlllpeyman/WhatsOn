@@ -5,9 +5,7 @@ import re
 
 def process_user_input(user_input):
     input_to_parse = user_input.lower().strip()
-    # pattern = r"([a-zA-ZäöüÄÖÜß\s]+)\s+(any|tomorrow|[a-zA-ZäöüÄÖÜß\s]+\s\d{1,2}|[a-zA-ZäöüÄÖÜß]+day)$"
     # any, today, tomorrow, week, weekend, next_week, month, next_month
-    # pattern = r"^([a-zA-ZäöüÄÖÜß]+(?:\s[a-zA-ZäöüÄÖÜß]+)?)\s+(?=(next\s(?:week|month)|any|today|tomorrow|weekend|week|month)$"
     pattern = r"^(.*?)\s+((?:next\s+(?:week|month))|any|today|tomorrow|weekend|week|month)$"
     match = re.match(pattern, input_to_parse, re.UNICODE)
 
