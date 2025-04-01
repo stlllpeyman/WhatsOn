@@ -2,6 +2,7 @@ import os
 from dotenv import load_dotenv
 from twilio.rest import Client
 import time
+import alex
 
 
 def init_twilio_client():
@@ -59,6 +60,9 @@ def main():
 
     while True:
         user_message = wait_for_user_message(my_conversation, address)
+
+        print(alex.clean_location_and_date(user_message))
+
         send_message(my_conversation,
                      f"Hey there, got your message: {user_message}, --> Length of your last message: {len(user_message)}")
 

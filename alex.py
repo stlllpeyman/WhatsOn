@@ -2,7 +2,7 @@
 import spacy
 
 
-nlp = spacy.load('en_core_web_sm')
+nlp = spacy.load('en_core_web_lg')
 
 def extract_location(user_message):
     """Takes user message and processes using nlp module of spaCy"""
