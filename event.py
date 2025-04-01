@@ -18,7 +18,7 @@ try:
     response = requests.get(api_url, headers=headers)
     if response.status_code == 200:
         title_data_json = response.json()
-        with open('../twillo/response.json', 'w') as fileobj:
+        with open('response.json', 'w') as fileobj:
             json.dump(title_data_json, fileobj)
     else:
         print(f"Error occurred: {response.status_code}")

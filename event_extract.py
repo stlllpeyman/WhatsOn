@@ -49,7 +49,7 @@ def main():
     It loads event data from a file, extracts event information, and formats the responses.
     """
     # Specify the path to your JSON file
-    file_path = "../twillo/response.json"  # Replace with the path to your JSON file
+    file_path = "response.json"  # Replace with the path to your JSON file
 
     # Extract event information from the JSON file
     events = extract_event_info(file_path)

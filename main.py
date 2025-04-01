@@ -55,7 +55,7 @@ def main():
     service = init_twilio_client()
     address = f"whatsapp:{os.getenv('PHONE_NUMBER')}"
     ms_address = f"whatsapp:{os.getenv('MS_WHATSAPP_NUMBER')}"
-    file_path = "../twillo/response.json"
+    file_path = "response.json"
     events = extract_event_info(file_path)
 
     my_conversation = get_my_conversation(service, address) or create_my_conversation(service, address, ms_address)
