@@ -112,7 +112,12 @@ def main():
     while True:
         user_message = wait_for_user_message(my_conversation, address)
 
-        print(process_user_input(user_message))
+        # tuple with city and time
+        api_query = process_user_input(user_message)
+        city, location = api_query
+
+        print(city)
+        print(location)
 
         send_message(my_conversation,
                      f"Hey there, got your message: {user_message}, --> Length of your last message: {len(user_message)}")

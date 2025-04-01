@@ -8,7 +8,7 @@ def process_user_input(user_input):
     # pattern = r"([a-zA-ZäöüÄÖÜß\s]+)\s+(any|tomorrow|[a-zA-ZäöüÄÖÜß\s]+\s\d{1,2}|[a-zA-ZäöüÄÖÜß]+day)$"
     # any, today, tomorrow, week, weekend, next_week, month, next_month
     # pattern = r"^([a-zA-ZäöüÄÖÜß]+(?:\s[a-zA-ZäöüÄÖÜß]+)?)\s+(?=(next\s(?:week|month)|any|today|tomorrow|weekend|week|month)$"
-    pattern = r"^([a-zA-ZäöüÄÖÜß\s]+)\s+(next\s(?:week|month)|any|today|tomorrow|weekend|week|month)$"
+    pattern = r"^(.*?)\s+((?:next\s+(?:week|month))|any|today|tomorrow|weekend|week|month)$"
     match = re.match(pattern, input_to_parse, re.UNICODE)
 
     if not match:
@@ -19,7 +19,7 @@ def process_user_input(user_input):
     # day_to_validate = match.group(2).strip()
 
     geolocator = Nominatim(user_agent="city_validator")
-    location = geolocator.geocode(city_to_validate)
+    location = geolocator.geocode(city_to_validate, exactly_one=True)
     # parsed_date = dateparser.parse(day_to_validate, settings={"PREFER_DATES_FROM": "future"}, languages=["en"])
 
     if location and location.latitude and location.longitude:
@@ -39,9 +39,9 @@ def process_user_input(user_input):
 
 
 
-user_input = input("Enter city and day or date: ")
-result = process_user_input(user_input)
-print(result)
+# user_input = input("Enter city and day or date: ")
+# result = process_user_input(user_input)
+# print(result)
 
 
 
