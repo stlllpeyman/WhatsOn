@@ -79,16 +79,21 @@ def get_formatted_events(location):
 
     else:
         insults = [
-            f"Hark thee, thou art a clodpole, a lack-brain! Forsooth, no merriments nor happenings are to be found within this {location}.",
-            f"Fie on thee, thou art as empty-witted as a gull! Verily, no pageants nor pastimes do grace {location}'s streets.",
-            f"Avaunt, thou art a scurvy knave, a most base footlicker! Alas, no tidings of revelry or show reach this place of {location}.",
-            f"By the heavens, thou art a dullard, a thrice-sodden fool! In truth, no jests nor entertainments do stir in {location}.",
-            f"Go to, thou art a witless worm, a very drone! Alack, no feasts nor festivals are discovered within the bounds of {location}."
-            f"Thou sodden-witted lord! Thou hast no more brain than I have in mine elbows. Alas, it is so that in {location}, no stirring dances nor melodious concerts do grace the hour"]
+            f"Ah, {location}! A place where even time itself seems to have packed up and left.",
+            f"By Jove, {location} is as lively as a crypt at midnight!",
+            f"{location}, my dear fellow, has all the excitement of a damp cravat.",
+            f"Holmes, I do believe {location} is where fun goes to perish.",
+            f"Nothing in {location}, old boy—unless one counts the thrilling sound of paint drying.",
+            f"Ah, {location}, a veritable festival of stillness and despair!",
+            f"Unless one considers watching the clouds an event, {location} is tragically bereft of activity.",
+            f"My dear chap, {location} makes a library on a Sunday seem positively riotous!",
+            f"As empty as a detective’s pipe before breakfast—{location} offers naught but solitude!",
+            f"{location}, where even the tumbleweeds have given up and gone elsewhere."
+        ]
 
-        messages = [random.choice(insults)]
+        insult = random.choice(insults)
         print("No events to process.")
-        return messages
+        return insult
 
 
 

@@ -19,5 +19,61 @@
         "location": "Any",
         "time": "weekend",
         "event type": "paris"
+    },
+    {
+        "user_number": "+491721722962",
+        "query_id": 4,
+        "location": "New York",
+        "time": "weekend",
+        "event type": "Concert"
+    },
+    {
+        "user_number": "+491721722962",
+        "query_id": 5,
+        "location": "San Francisco",
+        "time": "next_week",
+        "event type": "Any"
+    },
+    {
+        "user_number": "+491721722962",
+        "query_id": 6,
+        "location": "Stockholm",
+        "time": "next_month",
+        "event type": "Football"
+    },
+    {
+        "user_number": "+491721722962",
+        "query_id": 7,
+        "location": "Tokyo",
+        "time": "tomorrow",
+        "event type": "Restaurant"
+    },
+    {
+        "user_number": "+491721722962",
+        "query_id": 8,
+        "location": "Tokyo",
+        "time": "tomorrow",
+        "event type": "Any"
+    },
+    {
+        "user_number": "+491721722962",
+        "query_id": 9,
+        "location": "Berlin",
+        "time": "tomorrow",
+        "event type": "Fjfjd"
+    },
+    {
+        "user_number": "+491721722962",
+        "query_id": 10,
+        "location": "Lyon",
+        "time": "next_week",
+        "event type": "Concert"
+    },
+    {
+        "user_number": "+491721722962",
+        "query_id": 11,
+        "location": "Los Angeles",
+        "time": "next_month",
+        "event type": "Any"
     }
 ]

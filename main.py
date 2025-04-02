@@ -23,26 +23,41 @@ def main():
     while True:
         user_message = tw.wait_for_user_message(my_conversation, address)
         api_query = process_location_time(user_message)
+        print(api_query)
 
         try:
             location, date = api_query
-            tw.send_message(my_conversation, "Cool! What type of event are you looking for? football, concert, movie?")
-            user_event_type = tw.wait_for_user_message(my_conversation, address)
-            event_type = user_event_type
-            query = event_type + " " + location
 
-            get_user_data(query, date)
+            if location is None:
+                tw.send_message(my_conversation, "Good Lord! I have never heard of this locale ...")
 
-            tw.send_message(my_conversation, "Certainly, this is WhatsOn:")
-            get_json(query, date)
+            else:
+                tw.send_message(my_conversation, """
+                My dear fellow a sporting event, concert, or something altogether more refined—what shall it be?\n(Enter something like sports, concert, movie or any.)
+                """)
+                user_event_type = tw.wait_for_user_message(my_conversation, address)
+                event_type = user_event_type
+                print(event_type)
+                query = event_type + " " + location
+                print(query)
 
-            responses = event.get_formatted_events(location)
+                get_user_data(location, event_type, date)
 
-            for response in responses:
-                tw.send_message(my_conversation, response)
+                get_json(query, date)
+
+                responses = event.get_formatted_events(location)
+                if type(responses) == list:
+                    tw.send_message(my_conversation,
+                                    f"Capital idea! I shall summon the most notable gatherings in the vicinity posthaste! This is *WhatsOn* 🔎")
+
+                    for response in responses:
+                        tw.send_message(my_conversation, response)
+
+                else:
+                    tw.send_message(my_conversation, responses)
 
         except ValueError:
-            tw.send_message(my_conversation, "Please keep it short :) example: 'berlin tomorrow'")
+            tw.send_message(my_conversation, "Pray, be concise, old sport! 🧐\n(Example: 'berlin tomorrow')")
 
 
 if __name__ == "__main__":

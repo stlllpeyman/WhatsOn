@@ -7,9 +7,8 @@ load_dotenv()
 USER_NUMBER = os.getenv('PHONE_NUMBER')
 
 
-def get_user_data(query, date):
+def get_user_data(location, event_type, date):
     """follows"""
-    location, event_type = query.split()
 
     while True:
         try:
