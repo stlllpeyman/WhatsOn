@@ -7,7 +7,7 @@ def validate_city(city):
     """
     Function uses City Search API to validate the city.
     """
-    city = city.lower().capitalize()
+    city = city.lower().title()
 
     url = f"https://city-search2.p.rapidapi.com/city/autocomplete?input={city}"  # Adjust based on API
     headers = {

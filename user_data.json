@@ -110,5 +110,40 @@
         "location": "Tulsa",
         "time": "next_month",
         "event type": "concert"
+    },
+    {
+        "user_number": "+491721722962",
+        "query_id": 17,
+        "location": "Shanghai",
+        "time": "next_week",
+        "event type": "Concert"
+    },
+    {
+        "user_number": "+491721722962",
+        "query_id": 18,
+        "location": "Amsterdam",
+        "time": "tomorrow",
+        "event type": "Dance"
+    },
+    {
+        "user_number": "+491721722962",
+        "query_id": 19,
+        "location": "Dubai",
+        "time": "next_month",
+        "event type": "Any"
+    },
+    {
+        "user_number": "+491721722962",
+        "query_id": 20,
+        "location": "San Francisco",
+        "time": "weekend",
+        "event type": "Any"
+    },
+    {
+        "user_number": "+491721722962",
+        "query_id": 21,
+        "location": "New York City",
+        "time": "next_week",
+        "event type": "Movie"
     }
 ]
