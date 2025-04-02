@@ -23,7 +23,6 @@ def main():
     while True:
         user_message = tw.wait_for_user_message(my_conversation, address)
         api_query = process_location_time(user_message)
-        print(api_query)
 
         try:
             location, date = api_query
@@ -33,13 +32,11 @@ def main():
 
             else:
                 tw.send_message(my_conversation, """
-                My dear fellow a sporting event, concert, or something altogether more refined—what shall it be?\n(Enter something like sports, concert, movie or any.)
+                My dear fellow, sport, concert, or something refined?\n(Enter something like sports, concert, movie or any.)
                 """)
                 user_event_type = tw.wait_for_user_message(my_conversation, address)
                 event_type = user_event_type
-                print(event_type)
                 query = event_type + " " + location
-                print(query)
 
                 get_user_data(location, event_type, date)
 

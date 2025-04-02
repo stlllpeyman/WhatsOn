@@ -88,6 +88,6 @@ def send_message(conversation, message):
     """
     Function sends message back to user.
     """
-    print(f"Sending message to the user: {message}")
+    print("Sending message to the user")
     # creates new message and sends it to the convo
     conversation.messages.create(body=message)

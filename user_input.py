@@ -7,7 +7,7 @@ def validate_city(city):
     """
     Function uses City Search API to validate the city.
     """
-    city = city.title()
+    city = city.lower().capitalize()
 
     url = f"https://city-search2.p.rapidapi.com/city/autocomplete?input={city}"  # Adjust based on API
     headers = {
@@ -17,14 +17,17 @@ def validate_city(city):
     response = requests.get(url, headers=headers)
 
     data = response.json()
-    if data and len(data['data']) > 0:
-        # valid city
-        return city
 
+    if data and len(data['data']) > 0:
+        for item in data["data"]:
+            if item['name'] == city:
+                # valid city
+                return city
     else:
         # invalid city
         return None
 
+    return None
 
 def process_location_time(user_input):
     """

@@ -75,5 +75,40 @@
         "location": "Los Angeles",
         "time": "next_month",
         "event type": "Any"
+    },
+    {
+        "user_number": "+48798204427",
+        "query_id": 12,
+        "location": "London",
+        "time": "next_week",
+        "event type": "concert"
+    },
+    {
+        "user_number": "+48798204427",
+        "query_id": 13,
+        "location": "Bangkok",
+        "time": "tomorrow",
+        "event type": "concert"
+    },
+    {
+        "user_number": "+48798204427",
+        "query_id": 14,
+        "location": "Rome",
+        "time": "tomorrow",
+        "event type": "concert"
+    },
+    {
+        "user_number": "+48798204427",
+        "query_id": 15,
+        "location": "Krak\u00f3w",
+        "time": "tomorrow",
+        "event type": "any"
+    },
+    {
+        "user_number": "+48798204427",
+        "query_id": 16,
+        "location": "Tulsa",
+        "time": "next_month",
+        "event type": "concert"
     }
 ]
