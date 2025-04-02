@@ -2,7 +2,7 @@ import os
 from dotenv import load_dotenv
 from twilio.rest import Client
 import time
-from user_input import process_user_input
+from user_input import process_location_time
 from  event_extract import main_function
 from  event_extract import extract_event_info
 from event import get_json
@@ -118,21 +118,23 @@ def main():
 
     while True:
         user_message = wait_for_user_message(my_conversation, address)
-        api_query = process_user_input(user_message)
-        location, date = api_query
-        get_json(location, date)
-        send_message(my_conversation, "Certainly, this is WhatsOn:")
-        responses = main_function(location)
-        send_message(my_conversation, "Certainly, this is WhatsOn:") ## enter/pick event type
+        api_query = process_location_time(user_message)
+        try:
+            location, date = api_query
+            get_json(location, date)
+            send_message(my_conversation, "Certainly, this is WhatsOn:")
+            responses = main_function(location)
+            # send_message(my_conversation, "Certainly, this is WhatsOn:")  ## enter/pick event type
 
-        ##### user types: location + time
-        ##### bot response with cool: pick event type from list
-        ##### user picks, we then query the API for the first time
+            ##### user types: location + time
+            ##### bot response with cool: pick event type from list
+            ##### user picks, we then query the API for the first time
 
-        # filter the responses
-        for response in responses:
-            send_message(my_conversation, response)
-
+            # filter the responses
+            for response in responses:
+                send_message(my_conversation, response)
+        except ValueError:
+            send_message(my_conversation, "Please keep it short :) example: 'berlin tomorrow'")
 
 
 if __name__ == "__main__":
