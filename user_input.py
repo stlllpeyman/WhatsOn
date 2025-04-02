@@ -23,7 +23,6 @@ def process_user_input(user_input):
 
 
     # day_to_validate = match.group(2).strip()
-    print(city_to_validate, time)
 
     # geolocator = Nominatim(user_agent="city_validator")
     # location = geolocator.geocode(city_to_validate, exactly_one=True)

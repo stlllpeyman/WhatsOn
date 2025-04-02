@@ -1,4 +1,5 @@
 import json
+import random
 
 def extract_event_info(file_path: object) -> object:
     """
@@ -43,7 +44,7 @@ def twilio_response(events):
     return event_messages
 
 
-def main_function():
+def main_function(location):
     """
     Main function that orchestrates the flow of the program.
     It loads event data from a file, extracts event information, and formats the responses.
@@ -62,7 +63,18 @@ def main_function():
             print(message)
             return messages
     else:
+
+        insults = [
+            f"Hark thee, thou art a clodpole, a lack-brain! Forsooth, no merriments nor happenings are to be found within this {location}.",
+            f"Fie on thee, thou art as empty-witted as a gull! Verily, no pageants nor pastimes do grace {location}'s streets.",
+            f"Avaunt, thou art a scurvy knave, a most base footlicker! Alas, no tidings of revelry or show reach this place of {location}.",
+            f"By the heavens, thou art a dullard, a thrice-sodden fool! In truth, no jests nor entertainments do stir in {location}.",
+            f"Go to, thou art a witless worm, a very drone! Alack, no feasts nor festivals are discovered within the bounds of {location}."
+            f"Thou sodden-witted lord! Thou hast no more brain than I have in mine elbows. Alas, it is so that in {location}, no stirring dances nor melodious concerts do grace the hour"] # added by Gosia
+
+        messages = [random.choice(insults)] # added by Gosia
         print("No events to process.")
+        return messages # added by Gosia
 
 
 # # Ensure the main function is called when the script is executed
