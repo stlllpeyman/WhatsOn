@@ -5,7 +5,7 @@ import requests
 
 
 load_dotenv()
-API_KEY = os.getenv("I_KEY")
+API_KEY = os.getenv("API_KEY")
 HOST = "real-time-events-search.p.rapidapi.com"
 
 

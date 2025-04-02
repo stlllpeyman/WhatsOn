@@ -1,0 +1,23 @@
+[
+    {
+        "user_number": "+491721722962",
+        "query_id": 1,
+        "location": "Any",
+        "time": "next_week",
+        "event type": "berlin"
+    },
+    {
+        "user_number": "+491721722962",
+        "query_id": 2,
+        "location": "Movie",
+        "time": "tomorrow",
+        "event type": "paris"
+    },
+    {
+        "user_number": "+491721722962",
+        "query_id": 3,
+        "location": "Any",
+        "time": "weekend",
+        "event type": "paris"
+    }
+]

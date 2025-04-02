@@ -2,6 +2,7 @@ import os
 import twilio_helpers as tw
 from user_input import process_location_time
 import event_extract as event
+from store_user_data import get_user_data
 from store_events import get_json
 
 
@@ -29,11 +30,14 @@ def main():
             user_event_type = tw.wait_for_user_message(my_conversation, address)
             event_type = user_event_type
             query = event_type + " " + location
-            # print(query)
+
+            get_user_data(query, date)
+
             tw.send_message(my_conversation, "Certainly, this is WhatsOn:")
             get_json(query, date)
 
             responses = event.get_formatted_events(location)
+
             for response in responses:
                 tw.send_message(my_conversation, response)
 
