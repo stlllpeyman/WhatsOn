@@ -11,18 +11,12 @@ def main():
     formats the phone numbers for Twilio (that is why use of f-string),
     checks if convo exists, if not creates one,keeps waiting for messages and responding
     """
-    # our Twilio messaging service (our workspace where conversations happen)
-    # <service> is like a folder that hold all conversations
+    # Twilio messaging service (our workspace where conversations happen)
     service = tw.init_twilio_client()
     
     address = f"whatsapp:{os.getenv('PHONE_NUMBER')}"
     ms_address = f"whatsapp:{os.getenv('MS_WHATSAPP_NUMBER')}"
-    # file_path = "response.json"
-    # events = extract_event_info(file_path)
-    #
-    # my_conversation = get_my_conversation(service, address) or create_my_conversation(service, address, ms_address)
 
-    # checks if convo exists <or> (if not existing) creates a new one convo
     my_conversation = tw.get_my_conversation(service, address) or tw.create_my_conversation(service, address, ms_address)
 
     while True:
@@ -31,15 +25,15 @@ def main():
 
         try:
             location, date = api_query
-            get_json(location, date)
+            tw.send_message(my_conversation, "Cool! What type of event are you looking for? football, concert, movie?")
+            user_event_type = tw.wait_for_user_message(my_conversation, address)
+            event_type = user_event_type
+            query = event_type + " " + location
+            # print(query)
             tw.send_message(my_conversation, "Certainly, this is WhatsOn:")
+            get_json(query, date)
+
             responses = event.get_formatted_events(location)
-
-            ##### user types: location + time
-            ##### bot response with cool: pick event type from list
-            ##### user picks, we then query the API for the first time
-
-            # filter the responses
             for response in responses:
                 tw.send_message(my_conversation, response)
 

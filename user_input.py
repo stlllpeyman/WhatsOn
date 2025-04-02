@@ -25,8 +25,4 @@ def process_location_time(user_input):
     return city, time
 
 
-def process_event_type(user_input):
-    pass
-
-
 

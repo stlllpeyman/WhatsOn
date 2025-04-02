@@ -9,11 +9,11 @@ API_KEY = os.getenv("I_KEY")
 HOST = "real-time-events-search.p.rapidapi.com"
 
 
-def get_json(location, date):
+def get_json(query, date):
     """
     Fetches event data for a given location and date, and saves it to 'response.json'.
     """
-    api_url = f"https://{HOST}/search-events?query={location}&is_virtual=false&date={date}"
+    api_url = f"https://{HOST}/search-events?query={query}&is_virtual=false&date={date}"
     headers = {
         "x-rapidapi-key": API_KEY,
     }

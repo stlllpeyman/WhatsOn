@@ -23,7 +23,7 @@ def extract_event_info(file_path: str) -> list[dict]:
         return []
 
     # Extract the first 3 events
-    for event in data.get("data", [])[:3]:  # Slice to get only the first 3 events
+    for event in data.get("data", [])[:3]:
         event_data = {
             "name": event.get("name", "Name is not available"),
             "description": event.get("description", "Description is not available"),
@@ -52,7 +52,7 @@ def twilio_response(events):
 
         {event["description"]}"""
 
-        # textwrap cleans up leading spaces from multiline strings
+        # textwrap.dedent cleans up leading spaces from multiline strings
         event_messages.append(textwrap.dedent(message))
 
     return event_messages
@@ -75,10 +75,7 @@ def get_formatted_events(location):
     # If events are extracted, format them into messages
     if events:
         messages = twilio_response(events)
-        # Print or use the messages as needed
-        for message in messages:
-            print(message)
-            return messages
+        return messages
 
     else:
         insults = [
