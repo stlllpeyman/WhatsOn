@@ -23,19 +23,19 @@ def process_user_input(user_input):
 
 
     # day_to_validate = match.group(2).strip()
-    print(city_to_validate, time)
+    # print(city_to_validate, time)
 
-    # geolocator = Nominatim(user_agent="city_validator")
-    # location = geolocator.geocode(city_to_validate, exactly_one=True)
+    geolocator = Nominatim(user_agent="city_validator")
+    location = geolocator.geocode(city_to_validate, exactly_one=True)
 
     # parsed_date = dateparser.parse(day_to_validate, settings={"PREFER_DATES_FROM": "future"}, languages=["en"])
 
-    # if location and location.latitude and location.longitude:
-    #     # print(f"City '{city_to_validate}' is valid.")
-    #     location = city_to_validate
-    #
-    # else:
-    #     return f"City '{city_to_validate}' is invalid."
+    if location and location.latitude and location.longitude:
+        # print(f"City '{city_to_validate}' is valid.")
+        location = city_to_validate
+
+    else:
+        return f"City '{city_to_validate}' is invalid."
 
     # if parsed_date:
     #     date = parsed_date.strftime("%Y-%m-%d")
