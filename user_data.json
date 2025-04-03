@@ -145,5 +145,33 @@
         "location": "New York City",
         "time": "next_week",
         "event type": "Movie"
+    },
+    {
+        "user_number": "+491721722962",
+        "query_id": 22,
+        "location": "Munich",
+        "time": "next_week",
+        "event type": "Art"
+    },
+    {
+        "user_number": "+491721722962",
+        "query_id": 23,
+        "location": "Cologne",
+        "time": "next_month",
+        "event type": "Movie"
+    },
+    {
+        "user_number": "+491721722962",
+        "query_id": 24,
+        "location": "New York City",
+        "time": "next_week",
+        "event type": "Movie"
+    },
+    {
+        "user_number": "+491721722962",
+        "query_id": 25,
+        "location": "Milan",
+        "time": "weekend",
+        "event type": "Museum"
     }
 ]
